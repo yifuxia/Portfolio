@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+  </head>
+  <style type="text/css">
+    body {
+      font-family: 'Source Sans Pro', sans-serif;
+    }
+    #nav p{
+      font-size: 1rem;
+    }
+    #nav div{
+      cursor: pointer;
+      margin-top: 5vh;
+      margin-bottom: 5vh;
+    }
+    #nav div:hover{
+      background: black;
+    }
+    </style>
+  <body style="text-align:center;margin:0 0">
+      <svg viewBox="0 0 300 300" 
+            preserveAspectRatio="xMinYMin meet" 
+            xmlns="http://www.w3.org/2000/svg"
+            style="width:10vw;cursor:pointer;position:absolute;left:0;top:0;z-index:999"
+            id="navBtn">
+        <line id="Y-left" x1="100" y1="100" x2="140" y2="140" stroke="black" stroke-width="8" />
+        <line id="Y-right" x1="200" y1="100" x2="160" y2="140" stroke="black" stroke-width="8" />
+        <line id="Y-bottom-l" x1="150" y1="150" x2="150" y2="200" stroke="black" stroke-width="8" />
+        <line id="Y-bottom-r" x1="150" y1="150" x2="150" y2="200" stroke="black" stroke-width="8" />
+      </svg>
+      <div id="nav_wrapper" style="position:absolute;width:100%;height:100%;background:rgba(0,0,0,.8);text-align:center;display:none">
+        <div id="nav" style="width:40vw;color:white;margin-left:30vw;margin-top:30vh;">
+          <div>
+            <p>Yelp Review Analysis</p>
+          </div>
+          <div>
+            <p>Stephen Curry Shooting Stats Visualisation</p>
+          </div>
+          <div>
+            <p>Music Mixer</p>
+          </div> 
+          <div>
+            <p>Home</p>
+          </div> 
+        </div>
+      </div>
+    <iframe src="" style="width:100vw;height:100vh" frameborder="0"></iframe>
+
+  </body>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/16.3.5/Tween.min.js"></script>
+
+  <script>
+    $("#navBtn").hover(function(){
+      $("line").animate({'stroke-width':'5'},100)
+    },function(){
+      $("line").animate({'stroke-width':'8'},100)
+    })
+    $("#navBtn").on('click',function(){
+      if ($("#nav_wrapper").css('display') == 'none'){
+       $('#nav').animate({'margin-top':'30vh','opacity':'1'},500)
+       $('#nav_wrapper').animate({'top':'0','opacity':'1'},500)
+       $("#nav_wrapper").css('display', 'block')
+       $("line").css('stroke','white')
+      }else{
+        $("line").css('stroke','black')
+        $('#nav').animate({'margin-top':'50vh','opacity':'0'},500)
+        $('#nav_wrapper').animate({'top':'50vh','opacity':'0'},500)
+        setTimeout(function(){$("#nav_wrapper").css('display', 'none')},500)
+      }
+    })
+    $("#nav p").on('click',function(){
+      switch ($(this).text()){
+          case 'Yelp Review Analysis':
+            $("line").css('stroke','black')
+            $('iframe').attr('src','http://www.yifuxia.com:3004')
+            $('#nav').animate({'margin-top':'50vh','opacity':'0'},100)
+            $('#nav_wrapper').animate({'top':'50vh','opacity':'0'},100)
+            $("#nav_wrapper").css('display', 'none')
+            break
+          case 'Stephen Curry Shooting Stats Visualisation':
+            $("line").css('stroke','black')
+            $('iframe').attr('src','http://www.yifuxia.com:3003')
+            $("#nav_wrapper").css('display', 'none')
+            break
+          case 'Music Mixer':
+            $("line").css('stroke','white')
+            $('iframe').attr('src','http://www.yifuxia.com:3001')
+            $("#nav_wrapper").css('display', 'none')
+            break
+          case 'Home':
+            $("line").css('stroke','black')
+            $('iframe').attr('src','')
+            $("#nav_wrapper").css('display', 'none')
+            break
+      }
+    })
+  </script>
+</html>
