@@ -45,19 +45,23 @@
             <p>Music Mixer</p>
           </div> 
           <div>
+            <p>Stock Visualization</p>
+          </div> 
+          <div>
             <p>Home</p>
           </div> 
         </div>
       </div>
       <div id="gallery">
-       <div id="project_details" style="width:20vw;left:30vw;top:50vh;text-align:center;position:absolute">
+       <div id="project_details" style="width:15vw;left:30vw;top:50vh;text-align:center;position:absolute">
           <h3></h3>
           <p></p>
         </div>
-        <img id="basketball-vis" name="Stephen Curry Shooting Stats Visualisation" details="An animated 3D visualisation project." src="images/basketball-vis.gif" loop=infinite style="opacity:.5;width:20vw;position:absolute;top:20vh;left:15vw;cursor:pointer;border-radius:30%;"/>
+        <img id="basketball-vis" name="Stephen Curry Shooting Stats Visualisation" details="An animated 3D visualisation project." src="images/basketball-vis.gif" loop=infinite style="opacity:.7;width:15vw;position:absolute;top:20vh;left:15vw;cursor:pointer;border-radius:20%;"/>
        
-        <img id="music-mixer" name="Music Mixer" details="An interactive toy music mixer." src="images/music-mixer.gif" loop=infinite style="opacity:.5;width:20vw;position:absolute;top:20vh;left:40vw;cursor:pointer;border-radius:30%"/>
-        <img id="yelp-analysis" name="Yelp Review Analysis" details="An interactive webpage demonstrating text mining results of yelp reviews." src="images/yelp-analysis.gif" loop=infinite style="opacity:.5;width:20vw;position:absolute;top:20vh;left:65vw;cursor:pointer;border-radius:30%"/>
+        <img id="music-mixer" name="Music Mixer" details="An interactive toy music mixer." src="images/music-mixer.gif" loop=infinite style="opacity:.7;width:15vw;position:absolute;top:20vh;left:35vw;cursor:pointer;border-radius:20%"/>
+        <img id="yelp-analysis" name="Yelp Review Analysis" details="An interactive webpage demonstrating text mining results of yelp reviews." src="images/yelp-analysis.gif" loop=infinite style="opacity:.7;width:15vw;position:absolute;top:20vh;left:55vw;cursor:pointer;border-radius:20%"/>
+        <img id="stock-vis" name="Stock Visualization" details="An interactive visualization using React, Redux and D3" src="images/stock-vis.gif" loop=infinite style="opacity:.7;width:15vw;position:absolute;top:20vh;left:75vw;cursor:pointer;border-radius:20%"/>
       </div>
     <iframe allowtransparency="false" src="" style="width:100vw;height:100vh" frameborder="0"></iframe>
 
@@ -97,6 +101,12 @@
           break
         case 'yelp-analysis':
           $('iframe').attr('src','http://www.yifuxia.com:3004')
+          $('#gallery').css('display','none')
+          $("line").css('stroke','black')
+          $('body').css('background','white')
+          break
+        case 'stock-vis':
+          $('iframe').attr('src','http://www.yifuxia.com:3005')
           $('#gallery').css('display','none')
           $("line").css('stroke','black')
           $('body').css('background','white')
@@ -144,6 +154,13 @@
             $('iframe').attr('src','http://www.yifuxia.com:3001')
             $("#nav_wrapper").css('display', 'none')
             $('#gallery').css('display','none')
+            break
+          case 'Stock Visualization':
+            $("line").css('stroke','black')
+            $('iframe').attr('src','http://www.yifuxia.com:3005')
+            $("#nav_wrapper").css('display', 'none')
+            $('#gallery').css('display','none')
+            $('body').css('background','white')
             break
           case 'Home':
             $("line").css('stroke','black')
