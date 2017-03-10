@@ -46,22 +46,25 @@
           </div> 
           <div>
             <p>Stock Visualization</p>
-          </div> 
+          </div>
+          <div>
+            <p>Youtube Hacking</p>
+          </div>  
           <div>
             <p>Home</p>
           </div> 
         </div>
       </div>
       <div id="gallery">
-       <div id="project_details" style="width:15vw;left:30vw;top:50vh;text-align:center;position:absolute">
+       <div id="project_details" style="width:40vw;left:50vw;top:50vh;text-align:center;position:absolute">
           <h3></h3>
           <p></p>
         </div>
         <img id="basketball-vis" name="Stephen Curry Shooting Stats Visualisation" details="An animated 3D visualisation project." src="images/basketball-vis.gif" loop=infinite style="opacity:.7;width:15vw;position:absolute;top:20vh;left:15vw;cursor:pointer;border-radius:20%;"/>
-       
         <img id="music-mixer" name="Music Mixer" details="An interactive toy music mixer." src="images/music-mixer.gif" loop=infinite style="opacity:.7;width:15vw;position:absolute;top:20vh;left:35vw;cursor:pointer;border-radius:20%"/>
         <img id="yelp-analysis" name="Yelp Review Analysis" details="An interactive webpage demonstrating text mining results of yelp reviews." src="images/yelp-analysis.gif" loop=infinite style="opacity:.7;width:15vw;position:absolute;top:20vh;left:55vw;cursor:pointer;border-radius:20%"/>
         <img id="stock-vis" name="Stock Visualization" details="An interactive visualization using React, Redux and D3" src="images/stock-vis.gif" loop=infinite style="opacity:.7;width:15vw;position:absolute;top:20vh;left:75vw;cursor:pointer;border-radius:20%"/>
+        <img id="youtube-hacking" name="Youtube Hacking" details="A study of Youtube video meta data " src="images/youtube-hacking.gif" loop=infinite style="opacity:.7;width:15vw;position:absolute;top:55vh;left:15vw;cursor:pointer;border-radius:20%"/>
       </div>
     <iframe allowtransparency="false" src="" style="width:100vw;height:100vh" frameborder="0"></iframe>
 
@@ -78,7 +81,7 @@
 
     $('img').hover(function(){
       $('#'+$(this).attr('id')).animate({'opacity':'1','top':'+=1vh'},200)
-      $("#project_details").animate({'opacity':'1','left':$(this).css('left')},200)
+      $("#project_details").animate({'opacity':'1'},200)
       $("#project_details h3").text($(this).attr('name'))
       $("#project_details p").text($(this).attr('details'))
 
@@ -109,6 +112,12 @@
           $('iframe').attr('src','http://www.yifuxia.com:3005')
           $('#gallery').css('display','none')
           $("line").css('stroke','black')
+          $('body').css('background','white')
+          break
+        case 'youtube-hacking':
+          $('iframe').attr('src','http://www.yifuxia.com:3008')
+          $('#gallery').css('display','none')
+          $("line").css('stroke','white')
           $('body').css('background','white')
           break
 
@@ -161,6 +170,12 @@
             $("#nav_wrapper").css('display', 'none')
             $('#gallery').css('display','none')
             $('body').css('background','white')
+            break
+          case 'Youtube Hacking':
+            $("line").css('stroke','white')
+            $('iframe').attr('src','http://www.yifuxia.com:3008')
+            $("#nav_wrapper").css('display', 'none')
+            $('#gallery').css('display','none')
             break
           case 'Home':
             $("line").css('stroke','black')

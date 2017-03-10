@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'A5-Yifu_Xia' });
+  res.render('index', { title: 'Yifu_Xia' });
 });
 
 module.exports = router;
